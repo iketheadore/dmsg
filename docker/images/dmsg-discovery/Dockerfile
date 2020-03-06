@@ -14,7 +14,7 @@ WORKDIR /dmsg
 RUN go build -o /release/dmsg-discovery ./cmd/dmsg-discovery
 
 # Build image
-FROM busybox
+FROM scratch
 
 COPY --from=builder /release/dmsg-discovery /usr/local/bin/dmsg-discovery
 ENTRYPOINT [ "dmsg-discovery" ]

@@ -14,7 +14,7 @@ WORKDIR /dmsg
 RUN go build -o /release/dmsg-server ./cmd/dmsg-server
 
 # Build image
-FROM busybox
+FROM scratch
 
 COPY --from=builder /release/dmsg-server /usr/local/bin/dmsg-server
 ENTRYPOINT [ "dmsg-server" ]
